@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.tobo.services.domain;
+package com.tobo.services.model;
 
 import java.util.Date;
 

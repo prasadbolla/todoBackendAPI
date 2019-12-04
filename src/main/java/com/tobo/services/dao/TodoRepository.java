@@ -1,14 +1,14 @@
 /**
  * 
  */
-package com.tobo.services.data.service;
+package com.tobo.services.dao;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.tobo.services.domain.Todo;
+import com.tobo.services.model.Todo;
 
 /**
  * @author PRASADBolla

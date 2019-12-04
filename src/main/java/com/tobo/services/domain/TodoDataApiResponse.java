@@ -5,6 +5,8 @@ package com.tobo.services.domain;
 
 import java.util.List;
 
+import com.tobo.services.model.Todo;
+
 /**
  * @author PRASADBolla
  *

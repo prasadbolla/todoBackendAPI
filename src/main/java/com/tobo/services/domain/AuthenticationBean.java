@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.tobo.services.controller;
+package com.tobo.services.domain;
 
 /**
  * @author PRASADBolla

@@ -3,3 +3,5 @@ INSERT INTO TODO(ID, USERNAME, DESCRIPTION, TARGET_DATE, STATUS, CHECKED) values
 INSERT INTO TODO(ID, USERNAME, DESCRIPTION, TARGET_DATE, STATUS, CHECKED) values(1202, 'user', 'Meeting at 9 AM on Dec 2 2019', sysdate(), 'NO',false)
 
 INSERT INTO TODO(ID, USERNAME, DESCRIPTION, TARGET_DATE, STATUS, CHECKED) values(1203,'user', 'Meeting at 9 AM on Dec 3 2019', sysdate(), 'NO',false)
+
+INSERT INTO USER(ID, USERNAME, PASSWORD, EMAIL) values (1001,'user','password','bollaprasad@gmail.com')

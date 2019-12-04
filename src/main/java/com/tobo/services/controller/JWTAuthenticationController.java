@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.tobo.services.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,25 +8,18 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tobo.services.data.service.JwtTokenUtil;
 import com.tobo.services.data.service.JwtUserDetailsService;
-import com.tobo.services.domain.AuthenticationBean;
 import com.tobo.services.domain.AuthenticationRequest;
 import com.tobo.services.domain.JwtResponse;
 
-/**
- * @author PRASADBolla
- *
- */
 @CrossOrigin
 @RestController
-public class BasicAuthController {
-	
+public class JWTAuthenticationController {
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
@@ -39,11 +29,32 @@ public class BasicAuthController {
 
 	@Autowired
 	private JwtUserDetailsService userDetailsService;
-	
-	@GetMapping(path="/basicAuth")
-	public AuthenticationBean authenticate(){
-		return new AuthenticationBean("Authenticated Successfully");
+
+	/**
+	 * @param authenticationRequest
+	 * @return
+	 * @throws Exception
+	 */
+	@PostMapping(value = "/authenticate")
+	public ResponseEntity<JwtResponse> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest){
+
+		try {
+			authenticate(authenticationRequest.getUsername(),
+					authenticationRequest.getPassword());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		final UserDetails userDetails = userDetailsService
+				.loadUserByUsername(authenticationRequest.getUsername());
+
+		final String token = jwtTokenUtil.generateToken(userDetails);
+
+		return ResponseEntity.ok(new JwtResponse(token));
+
 	}
+
 	/**
 	 * @param username
 	 * @param password
@@ -62,5 +73,7 @@ public class BasicAuthController {
 			throw new Exception("INVALID_USER_CREDENTIALS", e);
 
 		}
+
 	}
+
 }

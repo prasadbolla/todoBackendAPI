@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.tobo.services.domain.Todo;
+import com.tobo.services.model.Todo;
 import com.tobo.services.util.CommonUtil;
 
 /**

@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.tobo.services.data.service.TodoRepository;
+import com.tobo.services.dao.TodoRepository;
 import com.tobo.services.data.service.TodoService;
-import com.tobo.services.domain.Todo;
 import com.tobo.services.domain.TodoDataApiResponse;
+import com.tobo.services.model.Todo;
 
 /**
  * @author PRASADBolla 
